@@ -1,8 +1,10 @@
-#define ldr_qty 7
+#define ldr_qty 1
 #define fet_gate 9
 
-const int ldr_pins[] = {2, 3, 4, 5, 6, 7, 8};
-const int planet_sounds[] = {2000, 2250, 2500, 2750, 3000, 3500, 4000};
+// const int ldr_pins[] = {2, 3, 4, 5, 6, 7, 8};
+const int ldr_pins[] = {2};
+const int planet_sounds[] = {262, 294, 330};
+// const int planet_sounds[] = {262, 294, 330, 349, 392, 440, 494};
 
 void setup()
 {
@@ -18,7 +20,7 @@ void loop()
   bool ldr_on = false;
   for (int i = 0; i < ldr_qty; i++)
   {
-    if (digitalRead(ldr_pins[i]) == 0)
+    if (digitalRead(ldr_pins[i]) == 1)
     {
       tone(fet_gate, planet_sounds[i]);
       ldr_on = true;
